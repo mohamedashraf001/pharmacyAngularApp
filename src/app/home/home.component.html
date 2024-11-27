@@ -1,0 +1,73 @@
+<div class="min-h-screen flex flex-col bg-gradient-to-br from-gray-100 to-gray-300">
+  <!-- Blue Header with Developer Info and Logout Button -->
+  <div class="w-full bg-blue-600 text-white py-4 px-6 flex justify-between items-center">
+    <div class="flex items-center space-x-4">
+      <h1 class="text-2xl font-bold">Mostafa Pharmacy</h1>
+      <!-- Developer Info -->
+      <span class="text-sm text-gray-300">Developer: Mohamed Ashraf - 01273148385</span>
+    </div>
+    <button 
+      (click)="logout()" 
+      class="bg-teal-500 text-white py-2 px-4 rounded-lg hover:bg-orange-600 transition-all font-semibold">
+      Logout
+    </button>
+  </div>
+  
+  <!-- Main Content Area -->
+  <div class="flex flex-col items-center justify-center p-6 mt-6">
+    <!-- Header with View Page Button -->
+    <div class="w-full mb-8 flex justify-between items-center">
+      <button 
+        routerLink="/SearchCustomer" 
+        class="bg-orange-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 transition-all font-semibold"
+      >
+        View Page
+      </button>
+    </div>
+    
+    <!-- Cards Section -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl w-full justify-center">
+      <!-- Add Customer Card -->
+      <div class="bg-white shadow-xl rounded-xl overflow-hidden transform transition-all hover:scale-105">
+        <img
+          src="https://th.bing.com/th/id/R.32750acd97cb2dd5d14b88ef67f83020?rik=v4n7Dc0GgXD0sQ&riu=http%3a%2f%2fwww.bizbuilder.com%2fwp-content%2fuploads%2f2013%2f07%2fCustomers-Suppliers.jpg&ehk=UwAnmvg2VAEAirMlkn9EdOBSlgkzDxNqXDyr1jjCUrE%3d&risl=&pid=ImgRaw&r=0"
+          alt="Customer"
+          class="w-full h-48 object-cover"
+        />
+        <div class="p-8">
+          <h2 class="text-2xl font-bold text-gray-800 mb-6">Add Customer</h2>
+          <form>
+            <button
+              type="submit"
+              routerLink="/AddCustomer"
+              class="w-full bg-blue-500 text-white py-3 rounded-lg hover:bg-blue-600 transition-all font-bold shadow-lg"
+            >
+              Add Customer
+            </button>
+          </form>
+        </div>
+      </div>
+  
+      <!-- Add Operation Card -->
+      <div class="bg-white shadow-xl rounded-xl overflow-hidden transform transition-all hover:scale-105">
+        <img
+          src="https://t3.ftcdn.net/jpg/02/07/09/06/360_F_207090651_hicOL8oaci2vp3O0jnBsGPNyaVJRTWy1.jpg"
+          alt="Operation"
+          class="w-full h-48 object-cover"
+        />
+        <div class="p-8">
+          <h2 class="text-2xl font-bold text-gray-800 mb-6">Add Operation</h2>
+          <form>
+            <button
+              type="submit"
+              routerLink="/AddOperation"
+              class="w-full bg-blue-500 text-white py-3 rounded-lg hover:bg-blue-600 transition-all font-bold shadow-lg"
+            >
+              Add Operation
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

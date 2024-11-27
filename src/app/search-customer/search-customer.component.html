@@ -1,0 +1,65 @@
+<div
+  class="min-h-screen bg-cover bg-center bg-no-repeat flex items-center justify-center p-6"
+  style="background-image: url('https://th.bing.com/th/id/R.7156de3ce64a04f1cc171b2271d4c720?rik=UC5TPCG2wTaPVQ&pid=ImgRaw&r=0');"
+>
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+
+  <!-- Search Form Container -->
+  <div class="relative z-10 bg-white shadow-lg rounded-lg max-w-4xl w-full overflow-hidden">
+    <div class="p-6">
+      <h2 class="text-4xl font-bold text-blue-800 mb-6">Search Customer</h2>
+
+      <!-- Display error or success message -->
+      <div *ngIf="errorMessage" class="text-red-500 mb-4">
+        {{ errorMessage }}
+      </div>
+      <div *ngIf="successMessage" class="text-green-500 mb-4">
+        {{ successMessage }}
+      </div>
+
+      <form (ngSubmit)="onSearch()">
+        <!-- Customer ID -->
+        <div class="mb-4">
+          <label class="block text-gray-600 mb-1">Customer ID</label>
+          <input
+            [(ngModel)]="customerId"
+            name="customerId"
+            type="number"
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"
+            placeholder="Enter Customer ID"
+            required
+          />
+        </div>
+
+        <!-- Buttons -->
+        <div class="flex justify-end">
+          <button
+            type="reset"
+            class="py-2 px-4 bg-gray-400 hover:bg-gray-500 text-white rounded-lg font-semibold transition-all mr-2"
+          >
+            Reset
+          </button>
+          <button
+            type="submit"
+            class="py-2 px-4 bg-blue-500 hover:bg-blue-600 text-white rounded-lg font-semibold transition-all shadow-md"
+          >
+            Search
+          </button>
+        </div>
+      </form>
+
+      <!-- Display Customer Info if Found -->
+      <div *ngIf="customer" class="mt-6">
+        <h3 class="text-xl font-semibold text-blue-800 mb-4">Customer Details</h3>
+        <div class="bg-blue-100 p-4 rounded-lg shadow-md">
+          <p><strong>Name:</strong> {{ customer.name }}</p>
+          <p><strong>Phone:</strong> {{ customer.phone }}</p>
+          <p><strong>Customer ID:</strong> {{ customer.customerId }}</p>
+          <p><strong>Company:</strong> {{ customer.companyName }}</p>
+          <p><strong>Address:</strong> {{ customer.address }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

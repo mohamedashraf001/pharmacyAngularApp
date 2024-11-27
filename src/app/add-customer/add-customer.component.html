@@ -1,0 +1,107 @@
+<div
+  class="min-h-screen bg-cover bg-center bg-no-repeat flex items-center justify-center p-6"
+  style="background-image: url('https://th.bing.com/th/id/R.7156de3ce64a04f1cc171b2271d4c720?rik=UC5TPCG2wTaPVQ&pid=ImgRaw&r=0');"
+>
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+
+  <!-- Form Container with even larger width -->
+  <div class="relative z-10 bg-white shadow-lg rounded-lg max-w-4xl w-full overflow-hidden">
+    <div class="p-6">
+      <h2 class="text-4xl font-bold text-blue-800 mb-6">Add Customer</h2>
+
+      <!-- Display error or success message -->
+      <div *ngIf="errorMessage" class="text-red-500 mb-4">
+        {{ errorMessage }}
+      </div>
+      <div *ngIf="successMessage" class="text-green-500 mb-4">
+        {{ successMessage }}
+      </div>
+
+      <form (ngSubmit)="onSubmit()">
+        <!-- Customer Name -->
+        <div class="mb-4">
+          <label class="block text-gray-600 mb-1">Full Name</label>
+          <input
+            [(ngModel)]="customer.name"
+            name="name"
+            type="text"
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"
+            placeholder="Enter customer's full name"
+            required
+          />
+        </div>
+
+        <!-- Phone Number -->
+        <div class="mb-4">
+          <label class="block text-gray-600 mb-1">Phone Number</label>
+          <input
+            [(ngModel)]="customer.phone"
+            name="phone"
+            type="tel"
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"
+            placeholder="Enter phone number"
+            required
+          />
+        </div>
+
+        <!-- Customer ID -->
+        <div class="mb-4">
+          <label class="block text-gray-600 mb-1">Customer ID</label>
+          <input
+            [(ngModel)]="customer.customerId"
+            name="customerId"
+            type="text"
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"
+            placeholder="Enter customer ID"
+            required
+          />
+        </div>
+
+        <!-- Company -->
+        <div class="mb-4">
+          <label class="block text-gray-600 mb-1">Company</label>
+          <input
+            [(ngModel)]="customer.companyName"
+            name="companyName"
+            type="text"
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"
+            placeholder="Enter company name"
+            required
+          />
+        </div>
+
+        <!-- Address -->
+        <div class="mb-4">
+          <label class="block text-gray-600 mb-1">Address</label>
+          <textarea
+            [(ngModel)]="customer.address"
+            name="address"
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"
+            placeholder="Enter address"
+            required
+          ></textarea>
+        </div>
+
+        <!-- Buttons -->
+        <div class="flex justify-end">
+          <button
+            type="reset"
+            class="py-2 px-4 bg-gray-400 hover:bg-gray-500 text-white rounded-lg font-semibold transition-all mr-2"
+          >
+            Reset
+          </button>
+          <button
+            type="submit"
+            class="py-2 px-4 bg-blue-500 hover:bg-blue-600 text-white rounded-lg font-semibold transition-all shadow-md"
+          >
+            Add Customer
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<!-- coment -->

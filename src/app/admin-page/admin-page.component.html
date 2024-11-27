@@ -1,0 +1,100 @@
+<div class="min-h-screen bg-cover bg-center bg-no-repeat flex items-center justify-center p-6" 
+     style="background-image: url('https://www2.deloitte.com/content/dam/Deloitte/us/Images/blog/promos/positive-globe-with-icons-p.jpg/jcr:content/renditions/cq5dam.web.1200.627.jpeg');">
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+
+  <!-- Admin Table for Operations and Customers -->
+  <div class="relative z-10 bg-white shadow-lg rounded-lg w-full lg:max-w-7xl xl:max-w-8xl overflow-hidden">
+    <div class="p-8">
+      <h2 class="text-3xl font-semibold text-gray-800 mb-8">Operations and Customers (Admin View)</h2>
+
+      <!-- Operations Table -->
+      <div class="overflow-x-auto mb-8">
+        <h3 class="text-2xl font-semibold text-gray-800 mb-6">Operations</h3>
+        <table class="min-w-full table-auto border-collapse">
+          <thead>
+            <tr class="bg-gray-100 text-left">
+              <th class="py-3 px-8 border-b text-gray-600 text-lg">Operation Type</th>
+              <th class="py-3 px-8 border-b text-gray-600 text-lg">Username</th>
+              <th class="py-3 px-8 border-b text-gray-600 text-lg">Branch</th>
+              <th class="py-3 px-8 border-b text-gray-600 text-lg">Price</th>
+              <th class="py-3 px-8 border-b text-gray-600 text-lg">Description</th>
+              <th class="py-3 px-8 border-b text-gray-600 text-lg">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let operation of operations" class="hover:bg-gray-50">
+              <td class="py-3 px-8 border-b">
+                <input [(ngModel)]="operation.operationType" class="border rounded px-2 py-1 w-full" />
+              </td>
+              <td class="py-3 px-8 border-b">
+                <input [(ngModel)]="operation.username" class="border rounded px-2 py-1 w-full" />
+              </td>
+              <td class="py-3 px-8 border-b">
+                <input [(ngModel)]="operation.branchName" class="border rounded px-2 py-1 w-full" />
+              </td>
+              <td class="py-3 px-8 border-b">
+                <input [(ngModel)]="operation.price" class="border rounded px-2 py-1 w-full" type="number" />
+              </td>
+              <td class="py-3 px-8 border-b">
+                <input [(ngModel)]="operation.description" class="border rounded px-2 py-1 w-full" />
+              </td>
+              <td class="py-3 px-8 border-b flex space-x-4">
+                <button (click)="saveOperation(operation)" class="py-2 px-4 bg-blue-500 hover:bg-blue-600 text-white rounded-lg font-semibold transition-all">
+                  Save
+                </button>
+                <button (click)="deleteOperation(operation.id)" class="py-2 px-4 bg-red-500 hover:bg-red-600 text-white rounded-lg font-semibold transition-all">
+                  Delete
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Customers Table -->
+      <div class="overflow-x-auto mb-8">
+        <h3 class="text-2xl font-semibold text-gray-800 mb-6">Customer Details</h3>
+        <table class="min-w-full table-auto border-collapse">
+          <thead>
+            <tr class="bg-gray-100 text-left">
+              <th class="py-3 px-8 border-b text-gray-600 text-lg">Customer Name</th>
+              <th class="py-3 px-8 border-b text-gray-600 text-lg">Phone Number</th>
+              <th class="py-3 px-8 border-b text-gray-600 text-lg">Customer ID</th>
+              <th class="py-3 px-8 border-b text-gray-600 text-lg">Company</th>
+              <th class="py-3 px-8 border-b text-gray-600 text-lg">Address</th>
+              <th class="py-3 px-8 border-b text-gray-600 text-lg">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let customer of customers" class="hover:bg-gray-50">
+              <td class="py-3 px-8 border-b">
+                <input [(ngModel)]="customer.name" class="border rounded px-2 py-1 w-full" />
+              </td>
+              <td class="py-3 px-8 border-b">
+                <input [(ngModel)]="customer.phone" class="border rounded px-2 py-1 w-full" />
+              </td>
+              <td class="py-3 px-8 border-b">
+                <input [(ngModel)]="customer.customerId" class="border rounded px-2 py-1 w-full" />
+              </td>
+              <td class="py-3 px-8 border-b">
+                <input [(ngModel)]="customer.companyName" class="border rounded px-2 py-1 w-full" />
+              </td>
+              <td class="py-3 px-8 border-b">
+                <input [(ngModel)]="customer.address" class="border rounded px-2 py-1 w-full" />
+              </td>
+              <td class="py-3 px-8 border-b flex space-x-4">
+                <button (click)="saveCustomer(customer)" class="py-2 px-4 bg-blue-500 hover:bg-blue-600 text-white rounded-lg font-semibold transition-all">
+                  Save
+                </button>
+                <button (click)="deleteCustomer(customer.id)" class="py-2 px-4 bg-red-500 hover:bg-red-600 text-white rounded-lg font-semibold transition-all">
+                  Delete
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
